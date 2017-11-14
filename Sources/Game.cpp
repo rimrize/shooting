@@ -21,9 +21,15 @@ int     score;          //!< スコア
 // ゲーム開始時に呼ばれる関数です。
 void Start()
 {
+<<<<<<< HEAD
     cloudPos = Vector2(-320, 100);
     cannonPos = Vector2(-300, -150);//位置の変更（実装：HW16A076 小谷　将豊）
     targetRect = Rect(270, -140, 40, 40);
+=======
+    cloudPos = Vector2(-20, 100);
+    cannonPos = Vector2(-320, 0);
+    targetRect = Rect(80, -140, 40, 40);
+>>>>>>> ec5ec9fef2f4e89bb7c14215384ecdf21e5c100b
     bulletPos.x = -999;
     score = 0;
     // PlayBGM（実装：HW16A076 小谷　将豊）
@@ -34,20 +40,20 @@ void Start()
 void Update()
 {
     // 弾の発射
-    if (bulletPos.x <= -999 && Input::GetKeyDown(KeyMask::Space)) {
+    if (bulletPos.x <= -99 && Input::GetKeyDown(KeyMask::Space)) {
         bulletPos = cannonPos + Vector2(50, 10);
         //弾の発射音（実装：HW16A076 小谷　将豊）
         PlaySound("se_maoudamashii_system20.mp3");
     }
 
     // 弾の移動
-    if (bulletPos.x > -999) {
-        bulletPos.x += 10 * Time::deltaTime;
+    if (bulletPos.x > -99) {
+        bulletPos.x += 100 * Time::deltaTime;
 
         // ターゲットと弾の当たり判定
         Rect bulletRect(bulletPos, Vector2(32, 20));
         if (targetRect.Overlaps(bulletRect)) {
-            score += 1;         // スコアの加算
+            score += 100;         // スコアの加算
             bulletPos.x = -999; // 弾を発射可能な状態に戻す
             //ヒット音（実装：HW16A076 小谷　将豊）
             PlaySound("se_maoudamashii_explosion06.mp3");
@@ -75,8 +81,8 @@ void Update()
     FillRect(targetRect, Color::red);
 
     // スコアの描画
-    SetFont("nicoca_v1.ttf", 20.0f);
-    DrawText(FormatString("%02d", score), Vector2(-319, 199), Color::black);
-    DrawText(FormatString("%02d", score), Vector2(-320, 200), Color::white);
+    SetFont("nicoca_v1.ttf", 55.0f);
+    DrawText(FormatString("%05d", score), Vector2(-310, 180), Color::black);
+    DrawText(FormatString("%05d", score), Vector2(-319, 189), Color::white);
 }
 
