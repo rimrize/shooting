@@ -21,7 +21,7 @@ int     score;          //!< スコア
 // ゲーム開始時に呼ばれる関数です。
 void Start()
 {
-    cloudPos = Vector2(-320, 100);
+    cloudPos = Vector2(-20, 100);
     cannonPos = Vector2(-80, -150);
     targetRect = Rect(80, -140, 40, 40);
     bulletPos.x = -999;
@@ -32,13 +32,13 @@ void Start()
 void Update()
 {
     // 弾の発射
-    if (bulletPos.x <= -999 && Input::GetKeyDown(KeyMask::Space)) {
+    if (bulletPos.x <= -99 && Input::GetKeyDown(KeyMask::Space)) {
         bulletPos = cannonPos + Vector2(50, 10);
     }
 
     // 弾の移動
-    if (bulletPos.x > -999) {
-        bulletPos.x += 10 * Time::deltaTime;
+    if (bulletPos.x > -99) {
+        bulletPos.x += 100 * Time::deltaTime;
 
         // ターゲットと弾の当たり判定
         Rect bulletRect(bulletPos, Vector2(32, 20));
