@@ -16,6 +16,8 @@ Vector2 cannonPos;      //!< 砲台の位置
 Vector2 bulletPos;      //!< 弾の位置
 Rect    targetRect;     //!< ターゲットの矩形
 int     score;          //!< スコア
+float   vy_c = 3;
+
 
 
 // ゲーム開始時に呼ばれる関数です。
@@ -26,6 +28,7 @@ void Start()
     targetRect = Rect(80, -140, 40, 40);
     bulletPos.x = -999;
     score = 0;
+    
 }
 
 // 1/60秒ごとに呼ばれる関数です。モデルの更新と画面の描画を行います。
@@ -63,6 +66,16 @@ void Update()
     // 砲台の描画
     FillRect(Rect(cannonPos.x-10, -140, 20, 100), Color::blue);
     DrawImage("cannon.png", cannonPos);
+    cannonPos.y += vy_c;
+    if ( cannonPos.y > 0 ) {
+        cannonPos.y = 0;
+        vy_c *= -1;
+    }
+    if ( cannonPos.y < -140 ) {
+        cannonPos.y = -140;
+        vy_c *= -1;
+    }
+        
 
     // ターゲットの描画
     FillRect(targetRect, Color::red);
