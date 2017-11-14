@@ -22,10 +22,12 @@ int     score;          //!< スコア
 void Start()
 {
     cloudPos = Vector2(-320, 100);
-    cannonPos = Vector2(-300, -150);
+    cannonPos = Vector2(-300, -150);//位置の変更（実装：HW16A076 小谷　将豊）
     targetRect = Rect(270, -140, 40, 40);
     bulletPos.x = -999;
     score = 0;
+    // PlayBGM（実装：HW16A076 小谷　将豊）
+    PlayBGM("bgm_maoudamashii_8bit07.mp3");
 }
 
 // 1/60秒ごとに呼ばれる関数です。モデルの更新と画面の描画を行います。
