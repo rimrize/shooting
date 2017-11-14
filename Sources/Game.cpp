@@ -40,14 +40,14 @@ void Start()
 void Update()
 {
     // 弾の発射
-    if (bulletPos.x <= -99 && Input::GetKeyDown(KeyMask::Space)) {
+    if (bulletPos.x <= -999 && Input::GetKeyDown(KeyMask::Space)) {
         bulletPos = cannonPos + Vector2(50, 10);
         //弾の発射音（実装：HW16A076 小谷　将豊）
         PlaySound("se_maoudamashii_system20.mp3");
     }
 
     // 弾の移動
-    if (bulletPos.x > -99) {
+    if (bulletPos.x > -999) {
         bulletPos.x += 100 * Time::deltaTime;
 
         // ターゲットと弾の当たり判定
