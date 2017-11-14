@@ -26,23 +26,14 @@ float   vy_cannon = 3;
 // ゲーム開始時に呼ばれる関数です。
 void Start()
 {
-<<<<<<< HEAD
     cloudPos = Vector2(-320, 100);
     cannonPos = Vector2(-300, -150);//位置の変更（実装：HW16A076 小谷　将豊）
     targetRect = Rect(270, -140, 40, 40);
-=======
-    cloudPos = Vector2(-20, 100);
-    cannonPos = Vector2(-320, 0);
-    targetRect = Rect(80, -140, 40, 40);
->>>>>>> ec5ec9fef2f4e89bb7c14215384ecdf21e5c100b
     bulletPos.x = -999;
     score = 0;
-<<<<<<< HEAD
     // PlayBGM（実装：HW16A076 小谷　将豊）
     PlayBGM("bgm_maoudamashii_8bit07.mp3");
-=======
-    
->>>>>>> 6813442067429968e642fc4fcf668dcf350d6b79
+
 }
 
 // 1/60秒ごとに呼ばれる関数です。モデルの更新と画面の描画を行います。
