@@ -6,9 +6,9 @@
 // B実装 HW16A005 有村 泉弥
 // TODO: 砲台を青い壁に沿って上下に動かす。(C)
 // C実装 HW16A005 有村 泉弥
-// TODO: 弾のスピードを速くし、弾が画面右端を通り越したら再度発射可能にする。(D)
-// TODO: スコアのサイズを大きくする。(E)
-// TODO: スコアを100点ずつ加算するようにし、5桁の表示に変える。(F)
+// TODO: 弾のスピードを速くし、弾が画面右端を通り越したら再度発射可能にする。(D)　HW16A075 小梶　希望
+// TODO: スコアのサイズを大きくする。(E)　HW16A075 小梶　希望
+// TODO: スコアを100点ずつ加算するようにし、5桁の表示に変える。(F)　HW16A075 小梶　希望
 // TODO: PlayBGM()関数を使って、BGMを再生する。(G)
 // TODO: PlaySE()関数を使って、弾の発射時とターゲットに当たった時にSEを再生する。(H)
 
@@ -48,7 +48,7 @@ void Update()
 
     // 弾の移動
     if (bulletPos.x > -999) {
-        bulletPos.x += 100 * Time::deltaTime;
+        bulletPos.x += 150 * Time::deltaTime;
 
         // ターゲットと弾の当たり判定
         Rect bulletRect(bulletPos, Vector2(32, 20));
@@ -57,7 +57,9 @@ void Update()
             bulletPos.x = -999; // 弾を発射可能な状態に戻す
             //ヒット音（実装：HW16A076 小谷　将豊）
             PlaySound("se_maoudamashii_explosion06.mp3");
-
+        }
+        else if (bulletPos.x > 300){
+            bulletPos.x = -999;
         }
     }
 
